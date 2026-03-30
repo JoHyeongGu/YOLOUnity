@@ -47,6 +47,6 @@ public class YoloManager : MonoBehaviour
 
         Vector3 target = new Vector3(worldX, 0.5f, worldZ);
 
-        player.SetTargetPosition(target);
+        player.SetTargetPosition(target, bbox.width);
     }
 }

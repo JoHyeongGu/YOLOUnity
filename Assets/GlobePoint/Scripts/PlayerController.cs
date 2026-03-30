@@ -10,6 +10,8 @@ public class PlayerController : MonoBehaviour
     private Vector3 velocity;
     private Vector3 origin;
 
+    private float minWidth = 350f;
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -17,13 +19,16 @@ public class PlayerController : MonoBehaviour
         targetPosition = transform.position;
     }
 
-    public void SetTargetPosition(Vector3 pos)
+    public void SetTargetPosition(Vector3 pos, float width)
     {
         Vector3 offset = pos - origin;
-
         offset.x = -offset.x * xScale;
-
         targetPosition = origin + offset;
+
+        if (width < minWidth) return;
+        Vector3 scale = transform.localScale;
+        scale.x = (width * 2) / minWidth;
+        transform.localScale = scale;
     }
 
     void FixedUpdate()
