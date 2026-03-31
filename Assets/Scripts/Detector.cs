@@ -1,6 +1,6 @@
 using UnityEngine;
-
 using System.Collections.Generic;
+using Globepoint.TaekwonSlime;
 
 public class Detector : MonoBehaviour
 {
@@ -17,7 +17,7 @@ public class Detector : MonoBehaviour
     private Yolo yolo;
     private Source source = null;
 
-    [SerializeField] private YoloManager bridge;
+    [SerializeField] private GP_YoloManager bridge;
 
     void Start()
     {
